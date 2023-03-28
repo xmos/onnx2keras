@@ -32,7 +32,7 @@ def convert_clip(node, params, layers, lambda_func, node_name, keras_name):
     if 'min' not in params:
         params['min'] = 0
     
-    if'max' not in params:
+    if 'max' not in params:
         params['max'] = 6
         
     if params['min'] == 0:
