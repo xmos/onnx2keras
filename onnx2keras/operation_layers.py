@@ -29,8 +29,10 @@ def convert_clip(node, params, layers, lambda_func, node_name, keras_name):
     input_0 = ensure_tf_type(layers[node.input[0]], name="%s_const" % keras_name)
 
     # Hack because Relu6 seems to be turned into a clip with no min or max
-    if 'min' not in params and 'max' not in params:
+    if 'min' not in params:
         params['min'] = 0
+    
+    if'max' not in params:
         params['max'] = 6
         
     if params['min'] == 0:
